@@ -71,13 +71,13 @@ clone_repo() {
     repo_url="${GITHUB_BASE_URL}/${repo_name}.git"
 
     if [ -d "$repo_name" ]; then
-        print_msg "$YELLOW" "⏭️  ${repo_name} already exists, skipping..."
+        print_msg "$YELLOW" "⏭ ${repo_name} already exists, skipping..."
     else
-        print_msg "$BLUE" "📦 Cloning ${repo_name}..."
+        print_msg "$BLUE" "Cloning ${repo_name}..."
         if git clone "$repo_url" "$repo_name"; then
-            print_msg "$GREEN" "✅ ${repo_name} cloned successfully"
+            print_msg "$GREEN" "✓ ${repo_name} cloned successfully"
         else
-            print_msg "$RED" "❌ Failed to clone ${repo_name}"
+            print_msg "$RED" "✗ Failed to clone ${repo_name}"
             return 1
         fi
     fi
@@ -89,31 +89,31 @@ setup_env_files() {
 
     # Backend .env
     if [ -f "backend/.env.example" ] && [ ! -f "backend/.env" ]; then
-        print_msg "$BLUE" "📝 Creating backend/.env from .env.example"
+        print_msg "$BLUE" "Creating backend/.env from .env.example"
         cp backend/.env.example backend/.env
-        print_msg "$YELLOW" "⚠️  Please edit backend/.env and set your configuration"
+        print_msg "$YELLOW" "⚠ Please edit backend/.env and set your configuration"
     fi
 
     # Infrastructure .env
     if [ -f "infrastructure/.env.example" ] && [ ! -f "infrastructure/.env" ]; then
-        print_msg "$BLUE" "📝 Creating infrastructure/.env from .env.example"
+        print_msg "$BLUE" "Creating infrastructure/.env from .env.example"
         cp infrastructure/.env.example infrastructure/.env
-        print_msg "$YELLOW" "⚠️  Please edit infrastructure/.env and set your configuration"
+        print_msg "$YELLOW" "⚠ Please edit infrastructure/.env and set your configuration"
     fi
 }
 
 # Print success message with next steps
 print_success() {
-    print_header "🎉 Setup Complete!"
+    print_header "Setup Complete"
 
     echo ""
     print_msg "$GREEN" "All repositories have been cloned successfully!"
     echo ""
-    print_msg "$BLUE" "📁 Project structure:"
+    print_msg "$BLUE" "Project structure:"
     tree -L 1 -d "$BASE_DIR" 2>/dev/null || ls -l "$BASE_DIR"
     echo ""
 
-    print_msg "$YELLOW" "📋 Next steps:"
+    print_msg "$YELLOW" "Next steps:"
     echo ""
     echo "1. Configure environment variables:"
     print_msg "$BLUE" "   cd ${BASE_DIR}/infrastructure"
@@ -143,18 +143,18 @@ print_success() {
     fi
 
     echo ""
-    print_msg "$BLUE" "📚 Documentation:"
+    print_msg "$BLUE" "Documentation:"
     echo "   - Backend:        ${GITHUB_BASE_URL}/backend"
     echo "   - Frontend:       ${GITHUB_BASE_URL}/frontend"
     echo "   - Infrastructure: ${GITHUB_BASE_URL}/infrastructure"
     echo ""
 
-    print_msg "$GREEN" "Happy coding! 🚀"
+    print_msg "$GREEN" "Happy coding!"
 }
 
 # Main execution
 main() {
-    print_header "🚀 DE Learning Hub - Setup"
+    print_header "DE Learning Hub - Setup"
 
     print_msg "$BLUE" "This script will clone all project repositories and set up your local environment."
     echo ""

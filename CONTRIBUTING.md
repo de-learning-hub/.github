@@ -1,47 +1,48 @@
 # Contributing to DE Learning Hub
 
-Спасибо за интерес к проекту! Мы рады любому вкладу в развитие платформы.
+Thank you for your interest in contributing to DE Learning Hub! We welcome contributions from the community.
 
-## 📋 Содержание
+## Table of Contents
 
 - [Code of Conduct](#code-of-conduct)
-- [Как начать](#как-начать)
-- [Процесс разработки](#процесс-разработки)
-- [Стандарты кода](#стандарты-кода)
+- [Getting Started](#getting-started)
+- [Development Workflow](#development-workflow)
+- [Code Standards](#code-standards)
 - [Commit Messages](#commit-messages)
 - [Pull Request Process](#pull-request-process)
-- [Тестирование](#тестирование)
+- [Testing](#testing)
 
-## 🤝 Code of Conduct
+## Code of Conduct
 
-Участвуя в проекте, вы соглашаетесь следовать нашим правилам:
+By participating in this project, you agree to:
 
-- Быть уважительным к другим участникам
-- Принимать конструктивную критику
-- Фокусироваться на том, что лучше для сообщества
-- Проявлять эмпатию к другим участникам
+- Be respectful to other contributors
+- Accept constructive criticism gracefully
+- Focus on what is best for the community
+- Show empathy towards other community members
 
-## 🚀 Как начать
+## Getting Started
 
-### 1. Fork и клонирование
+### 1. Fork and Clone
 
 ```bash
-# Fork репозитория через GitHub UI
-# Затем клонируйте свой fork:
+# Fork the repository through GitHub UI
+# Then clone your fork:
 git clone https://github.com/YOUR_USERNAME/REPO_NAME.git
 cd REPO_NAME
 
-# Добавьте upstream remote:
+# Add upstream remote:
 git remote add upstream https://github.com/de-learning-hub/REPO_NAME.git
 ```
 
-### 2. Настройка окружения
+### 2. Environment Setup
 
 **Backend:**
 ```bash
 cd backend
 python -m venv venv
 source venv/bin/activate  # Linux/macOS
+# or: venv\Scripts\activate  # Windows
 pip install -r requirements/dev.txt
 ```
 
@@ -51,7 +52,7 @@ cd frontend
 npm install
 ```
 
-### 3. Создайте feature branch
+### 3. Create Feature Branch
 
 ```bash
 git checkout develop
@@ -59,23 +60,22 @@ git pull upstream develop
 git checkout -b feature/your-feature-name
 ```
 
-## 🔄 Процесс разработки
+## Development Workflow
 
 ### Git Flow
 
-Мы используем Git Flow branching model:
+We use the Git Flow branching model:
 
 ```
-main           - Production-ready код
+main           - Production-ready code
 develop        - Integration branch
-feature/*      - Новые фичи
-bugfix/*       - Исправления багов
-hotfix/*       - Критичные фиксы для production
+feature/*      - New features
+bugfix/*       - Bug fixes
+hotfix/*       - Critical fixes from main
 ```
 
-### Naming Conventions
+### Branch Naming
 
-**Branches:**
 ```
 feature/add-resource-filtering
 feature/improve-search-performance
@@ -84,19 +84,17 @@ bugfix/correct-api-response
 hotfix/security-vulnerability-fix
 ```
 
-**Commits:** (см. секцию Commit Messages ниже)
-
-## 📝 Стандарты кода
+## Code Standards
 
 ### Python (Backend)
 
 **Style Guide:**
-- Используйте **Ruff** для форматирования и линтинга
-- **Type hints** обязательны для всех функций
-- **Docstrings** в NumPy style (английский)
-- **Комментарии** только где необходимо (английский)
+- Use **Ruff** for formatting and linting
+- **Type hints** required for all functions
+- **Docstrings** in NumPy style (English)
+- **Comments** only where necessary (English)
 
-**Пример:**
+**Example:**
 ```python
 from typing import List, Optional
 
@@ -127,12 +125,12 @@ def get_resources_by_category(
     pass
 ```
 
-**Перед коммитом:**
+**Before Committing:**
 ```bash
-# Форматирование
+# Formatting
 ruff format .
 
-# Линтинг
+# Linting
 ruff check .
 ruff check --fix .
 
@@ -146,12 +144,12 @@ python manage.py test
 ### TypeScript (Frontend)
 
 **Style Guide:**
-- ESLint + Prettier для форматирования
-- TypeScript strict mode
-- Functional components + Hooks
-- Props interfaces обязательны
+- ESLint + Prettier for formatting
+- TypeScript strict mode enabled
+- Functional components with Hooks
+- Props interfaces required
 
-**Пример:**
+**Example:**
 ```typescript
 interface ResourceCardProps {
   resource: Resource;
@@ -166,7 +164,7 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
 };
 ```
 
-**Перед коммитом:**
+**Before Committing:**
 ```bash
 npm run lint
 npm run type-check
@@ -181,9 +179,9 @@ npm run test
 - **Private members**: `_leading_underscore`
 - **Files**: `kebab-case.ts`, `snake_case.py`
 
-## 💬 Commit Messages
+## Commit Messages
 
-Мы используем [Conventional Commits](https://www.conventionalcommits.org/):
+We follow [Conventional Commits](https://www.conventionalcommits.org/):
 
 **Format:**
 ```
@@ -195,13 +193,13 @@ npm run test
 ```
 
 **Types:**
-- `feat` - Новая функциональность
-- `fix` - Исправление бага
-- `docs` - Изменения в документации
-- `style` - Форматирование кода (не влияет на логику)
-- `refactor` - Рефакторинг кода
-- `test` - Добавление или изменение тестов
-- `chore` - Обновление зависимостей, настройка окружения
+- `feat` - New feature
+- `fix` - Bug fix
+- `docs` - Documentation changes
+- `style` - Code formatting (no logic changes)
+- `refactor` - Code refactoring
+- `test` - Adding or updating tests
+- `chore` - Dependency updates, configuration changes
 
 **Examples:**
 ```bash
@@ -213,25 +211,25 @@ refactor(services): extract business logic to service layer
 chore(deps): update Django to 5.1.5
 ```
 
-**Scope** (опционально, но рекомендуется):
+**Scope** (optional but recommended):
 - Backend: `models`, `views`, `serializers`, `api`, `admin`
 - Frontend: `components`, `pages`, `hooks`, `services`, `types`
 - Infrastructure: `docker`, `ci`, `deploy`
 
-## 🔀 Pull Request Process
+## Pull Request Process
 
-### 1. Перед созданием PR
+### 1. Before Creating PR
 
 ```bash
-# Обновите develop branch
+# Update develop branch
 git checkout develop
 git pull upstream develop
 
-# Rebase вашу feature branch
+# Rebase your feature branch
 git checkout feature/your-feature
 git rebase develop
 
-# Убедитесь что тесты проходят
+# Ensure tests pass
 # Backend:
 python manage.py test
 ruff check .
@@ -242,9 +240,9 @@ npm run test
 npm run lint
 ```
 
-### 2. Создание PR
+### 2. Create Pull Request
 
-**Используйте шаблон:**
+**Use this template:**
 
 ```markdown
 ## Description
@@ -281,46 +279,46 @@ Related to #456
 
 ### 3. Code Review
 
-- Ожидайте review от maintainers
-- Отвечайте на комментарии
-- Вносите изменения при необходимости
-- Maintainer может запросить изменения или одобрить PR
+- Wait for review from maintainers
+- Address review comments
+- Make requested changes
+- Maintainer will approve or request additional changes
 
-### 4. После merge
+### 4. After Merge
 
 ```bash
-# Обновите свой develop
+# Update your develop branch
 git checkout develop
 git pull upstream develop
 
-# Удалите feature branch
+# Delete feature branch
 git branch -d feature/your-feature
 git push origin --delete feature/your-feature
 ```
 
-## 🧪 Тестирование
+## Testing
 
 ### Backend Tests
 
 ```bash
-# Все тесты
+# Run all tests
 python manage.py test
 
-# Конкретное приложение
+# Run specific app tests
 python manage.py test apps.resources
 
-# С покрытием
+# With coverage
 coverage run --source='.' manage.py test
 coverage report
-coverage html  # Открыть htmlcov/index.html
+coverage html  # Open htmlcov/index.html
 ```
 
-**Минимальное покрытие: 80%**
+**Minimum coverage: 80%**
 
 ### Frontend Tests
 
 ```bash
-# Все тесты
+# Run all tests
 npm run test
 
 # Watch mode
@@ -332,26 +330,26 @@ npm run test:coverage
 
 ### Integration Tests
 
-Для тестирования всей системы:
+For testing the entire system:
 
 ```bash
 cd infrastructure
 docker-compose -f docker-compose.test.yml up --abort-on-container-exit
 ```
 
-## 🐛 Reporting Bugs
+## Reporting Bugs
 
-**Используйте GitHub Issues:**
+**Use GitHub Issues:**
 
-1. Проверьте, что баг еще не был зарепорчен
-2. Создайте новый issue с описанием:
-   - Ожидаемое поведение
-   - Актуальное поведение
-   - Шаги для воспроизведения
-   - Скриншоты (если применимо)
-   - Окружение (OS, browser, versions)
+1. Check if the bug has already been reported
+2. Create a new issue with:
+   - Expected behavior
+   - Actual behavior
+   - Steps to reproduce
+   - Screenshots (if applicable)
+   - Environment (OS, browser, versions)
 
-**Пример:**
+**Example:**
 
 ```markdown
 **Description:**
@@ -374,28 +372,28 @@ Returns mixed difficulty levels
 - Backend version: v0.1.0
 ```
 
-## ✨ Suggesting Features
+## Suggesting Features
 
-**Используйте GitHub Discussions:**
+**Use GitHub Discussions:**
 
-1. Проверьте existing discussions
-2. Создайте новую discussion в категории "Ideas"
-3. Опишите:
-   - Проблему, которую решает фича
-   - Предлагаемое решение
-   - Альтернативы
-   - Дополнительный контекст
+1. Check existing discussions
+2. Create a new discussion in "Ideas" category
+3. Describe:
+   - Problem the feature solves
+   - Proposed solution
+   - Alternatives considered
+   - Additional context
 
-## 📚 Дополнительные ресурсы
+## Additional Resources
 
-- [CLAUDE.md](https://github.com/de-learning-hub/backend/blob/main/CLAUDE.md) - Детальные стандарты разработки
+- [CLAUDE.md](https://github.com/de-learning-hub/backend/blob/main/CLAUDE.md) - Detailed development standards
 - [Architecture Docs](https://github.com/de-learning-hub/.github/blob/main/docs/architecture.md)
 - [API Documentation](http://localhost:8000/api/schema/swagger-ui/)
 
-## 🙏 Благодарности
+## Acknowledgments
 
-Спасибо всем контрибьюторам за помощь в развитии проекта!
+Thank you to all contributors for helping improve the project!
 
 ---
 
-**Вопросы?** Создайте discussion в [GitHub Discussions](https://github.com/orgs/de-learning-hub/discussions)
+**Questions?** Start a discussion in [GitHub Discussions](https://github.com/orgs/de-learning-hub/discussions)

@@ -1,198 +1,198 @@
-# DE Learning Hub 🚀
+# DE Learning Hub
 
-> Систематизированная база знаний для русскоязычных дата-инженеров
+> Curated knowledge base and learning platform for Data Engineers
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![GitHub Organization](https://img.shields.io/badge/GitHub-de--learning--hub-181717?logo=github)](https://github.com/de-learning-hub)
 
-## 📚 О проекте
+## About the Project
 
-**DE Learning Hub** — это платформа для агрегации и систематизации образовательных материалов по Data Engineering. Проект помогает:
+**DE Learning Hub** is a platform for aggregating, organizing, and discovering educational materials for Data Engineering professionals. The platform provides:
 
-- 🎓 **Junior Data Engineers** — изучить основы профессии
-- 📈 **Middle Data Engineers** — углубить знания в конкретных областях
-- 🚀 **Senior Data Engineers** — найти продвинутые материалы
-- 🔄 **Career Switchers** — перейти в Data Engineering
+- Curated resources for all skill levels (Junior, Middle, Senior)
+- Structured learning paths and roadmaps
+- Interview preparation materials
+- Community-driven content recommendations
+- Multi-language support (English, Russian)
 
-## 🗂️ Структура проекта
+## Project Structure
 
-Проект состоит из нескольких независимых репозиториев:
+The project uses a multi-repository architecture with independent services:
 
-### 🔧 Core Services
+### Core Services
 
-| Репозиторий | Описание | Технологии | Статус |
-|-------------|----------|------------|--------|
-| [**backend**](https://github.com/de-learning-hub/backend) | REST API для управления контентом | Django, PostgreSQL, DRF | 🚧 Phase 0 |
-| [**frontend**](https://github.com/de-learning-hub/frontend) | Веб-интерфейс пользователя | React, TypeScript, Vite | 🚧 Phase 0 |
-| [**infrastructure**](https://github.com/de-learning-hub/infrastructure) | Docker, CI/CD, мониторинг | Docker Compose, GitHub Actions | 🚧 Phase 0 |
+| Repository | Description | Technologies | Status |
+|------------|-------------|--------------|--------|
+| [**backend**](https://github.com/de-learning-hub/backend) | REST API and content management | Django, PostgreSQL, DRF | Phase 0 |
+| [**frontend**](https://github.com/de-learning-hub/frontend) | Web application interface | React, TypeScript, Vite | Phase 0 |
+| [**infrastructure**](https://github.com/de-learning-hub/infrastructure) | Docker, CI/CD, deployment | Docker Compose, GitHub Actions | Phase 0 |
 
-### 🤖 Data Engineering (Phase 2+)
+### Data Engineering (Phase 2+)
 
-| Репозиторий | Описание | Технологии | Статус |
-|-------------|----------|------------|--------|
-| [**airflow**](https://github.com/de-learning-hub/airflow) | ETL пайплайны и парсеры | Airflow, Python | 📋 Planned |
+| Repository | Description | Technologies | Status |
+|------------|-------------|--------------|--------|
+| [**airflow**](https://github.com/de-learning-hub/airflow) | ETL pipelines and content parsers | Apache Airflow, Python | Planned |
 
-## 🏗️ Архитектура
+## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                      Frontend                            │
 │                 (React + TypeScript)                     │
 └────────────────────────┬────────────────────────────────┘
-                         │ REST API
+                         │ REST API / JSON
                          ↓
 ┌─────────────────────────────────────────────────────────┐
 │                      Backend                             │
 │              (Django REST + PostgreSQL)                  │
 └────────────────────────┬────────────────────────────────┘
                          ↑
-                         │ Parsed Data
+                         │ Automated Content Ingestion
 ┌─────────────────────────────────────────────────────────┐
 │                      Airflow                             │
-│           (Habr, YouTube, Telegram parsers)              │
+│       (Parsers: Medium, YouTube, Telegram, etc.)         │
 └─────────────────────────────────────────────────────────┘
 ```
 
-## 🚀 Быстрый старт
+## Quick Start
 
-### Вариант 1: Автоматический setup (рекомендуется)
+### Automated Setup (Recommended)
 
 ```bash
-# Скачать и запустить setup script
+# Download and execute setup script
 curl -fsSL https://raw.githubusercontent.com/de-learning-hub/.github/main/scripts/setup-all.sh | bash
 
-# Или клонировать вручную:
+# Or clone the repository:
 git clone https://github.com/de-learning-hub/.github.git
 cd .github
 bash scripts/setup-all.sh
 ```
 
-### Вариант 2: Ручная установка
+### Manual Installation
 
 ```bash
-# Создайте рабочую директорию
+# Create project directory
 mkdir de-learning-hub && cd de-learning-hub
 
-# Клонируйте репозитории
+# Clone repositories
 git clone https://github.com/de-learning-hub/backend.git
 git clone https://github.com/de-learning-hub/frontend.git
 git clone https://github.com/de-learning-hub/infrastructure.git
 
-# Запустите через Docker Compose
+# Start services with Docker Compose
 cd infrastructure
 cp .env.example .env
+# Edit .env with your configuration
 docker-compose up -d
 ```
 
-### Доступ к сервисам
+### Service Access
 
-После запуска будут доступны:
+After starting the services:
 
-- 🌐 **Frontend**: http://localhost:3000
-- 🔧 **Backend API**: http://localhost:8000
-- 📚 **API Docs**: http://localhost:8000/api/schema/swagger-ui/
-- ⚙️ **Django Admin**: http://localhost:8000/admin
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:8000
+- **API Documentation**: http://localhost:8000/api/schema/swagger-ui/
+- **Django Admin**: http://localhost:8000/admin
 
-## 📖 Документация
+## Documentation
 
-- 📘 [**Backend README**](https://github.com/de-learning-hub/backend/blob/main/README.md) - Django API setup
-- 📗 [**Frontend README**](https://github.com/de-learning-hub/frontend/blob/main/README.md) - React app setup
-- 📙 [**Infrastructure README**](https://github.com/de-learning-hub/infrastructure/blob/main/README.md) - Docker & deployment
-- 📕 [**CLAUDE.md**](https://github.com/de-learning-hub/backend/blob/main/CLAUDE.md) - Development standards
+### Repository Documentation
+- [Backend README](https://github.com/de-learning-hub/backend/blob/main/README.md) - Django API setup and configuration
+- [Frontend README](https://github.com/de-learning-hub/frontend/blob/main/README.md) - React application setup
+- [Infrastructure README](https://github.com/de-learning-hub/infrastructure/blob/main/README.md) - Docker and deployment
+- [CLAUDE.md](https://github.com/de-learning-hub/backend/blob/main/CLAUDE.md) - Development standards and guidelines
 
-### Полезные ссылки
+### Additional Resources
+- [Architecture Overview](https://github.com/de-learning-hub/.github/blob/main/docs/architecture.md)
+- [Development Guide](https://github.com/de-learning-hub/.github/blob/main/docs/development.md)
+- [Contributing Guidelines](https://github.com/de-learning-hub/.github/blob/main/CONTRIBUTING.md)
+- [Project Roadmap](https://github.com/orgs/de-learning-hub/projects)
 
-- 🎯 [Architecture Overview](https://github.com/de-learning-hub/.github/blob/main/docs/architecture.md)
-- 🛠️ [Development Guide](https://github.com/de-learning-hub/.github/blob/main/docs/development.md)
-- 🤝 [Contributing Guidelines](https://github.com/de-learning-hub/.github/blob/main/CONTRIBUTING.md)
-- 📋 [Project Roadmap](https://github.com/orgs/de-learning-hub/projects)
-
-## 🛠️ Технологический стек
+## Technology Stack
 
 ### Backend
 - **Language**: Python 3.11+
 - **Framework**: Django 5.1+, Django REST Framework
 - **Database**: PostgreSQL 15+
-- **API Docs**: drf-spectacular (OpenAPI)
+- **API Documentation**: drf-spectacular (OpenAPI 3.0)
 - **Code Quality**: Ruff, MyPy
 
 ### Frontend
 - **Language**: TypeScript
 - **Framework**: React 18+
 - **Build Tool**: Vite
-- **State**: TBD (Redux Toolkit / Zustand)
-- **UI**: TBD (Material-UI / Ant Design)
+- **State Management**: TBD (Redux Toolkit / Zustand)
+- **UI Framework**: TBD (Material-UI / Ant Design)
 
 ### Infrastructure
 - **Containers**: Docker, Docker Compose
 - **CI/CD**: GitHub Actions
 - **Monitoring**: TBD (Prometheus + Grafana)
-- **Secrets**: HashiCorp Vault (production)
+- **Secrets Management**: HashiCorp Vault (production)
 
 ### Data Engineering (Phase 2+)
 - **Orchestration**: Apache Airflow 3.0
-- **Sources**: Habr, YouTube, Telegram, VC.ru, Medium
+- **Content Sources**: Medium, YouTube, Telegram, Habr, VC.ru
 
-## 📊 Roadmap
+## Development Roadmap
 
-- [x] **Phase 0**: Project setup and architecture ← **ВЫ ЗДЕСЬ**
-- [ ] **Phase 1**: MVP with manual content management (2-3 weeks)
-- [ ] **Phase 2**: Airflow automation and parsers (3-4 weeks)
-- [ ] **Phase 3**: Learning paths and recommendations (2-3 weeks)
-- [ ] **Phase 4**: Interview preparation section (2 weeks)
-- [ ] **Phase 5**: Deployment and production setup (1-2 weeks)
-- [ ] **Phase 6**: Polish and improvements (ongoing)
+- [x] **Phase 0**: Project setup and architecture
+- [ ] **Phase 1**: MVP with manual content management
+- [ ] **Phase 2**: Airflow automation and content parsers
+- [ ] **Phase 3**: Learning paths and personalized recommendations
+- [ ] **Phase 4**: Interview preparation section
+- [ ] **Phase 5**: Production deployment and CI/CD
+- [ ] **Phase 6**: Continuous improvements and scaling
 
-## 🤝 Участие в проекте
+## Contributing
 
-Мы приветствуем контрибьюторов! Вот как можно помочь:
+Contributions are welcome! To contribute:
 
-1. 🍴 Fork интересующего репозитория
-2. 🌿 Создайте feature branch (`git checkout -b feature/amazing-feature`)
-3. 💾 Commit изменения (`git commit -m 'feat: add amazing feature'`)
-4. 📤 Push в branch (`git push origin feature/amazing-feature`)
-5. 🔀 Откройте Pull Request
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-### Стандарты разработки
+### Development Standards
 
-- **Git commits**: [Conventional Commits](https://www.conventionalcommits.org/) (English)
-- **Code style**: Ruff для Python, ESLint для TypeScript
-- **Type hints**: Обязательны везде
-- **Tests**: Минимум 80% покрытия
-- **Documentation**: NumPy docstrings (English)
+- **Commit Messages**: [Conventional Commits](https://www.conventionalcommits.org/)
+- **Code Style**: Ruff (Python), ESLint (TypeScript)
+- **Type Safety**: Type hints required for all functions
+- **Testing**: Minimum 80% code coverage
+- **Documentation**: NumPy-style docstrings
 
-Подробнее в [CONTRIBUTING.md](https://github.com/de-learning-hub/.github/blob/main/CONTRIBUTING.md)
+See [CONTRIBUTING.md](https://github.com/de-learning-hub/.github/blob/main/CONTRIBUTING.md) for detailed guidelines.
 
-## 🐛 Нашли баг?
+## Issues and Support
 
-Создайте issue в соответствующем репозитории:
+Report issues in the appropriate repository:
 
-- Backend bugs → [backend/issues](https://github.com/de-learning-hub/backend/issues)
-- Frontend bugs → [frontend/issues](https://github.com/de-learning-hub/frontend/issues)
-- Infrastructure → [infrastructure/issues](https://github.com/de-learning-hub/infrastructure/issues)
-- Общие вопросы → [.github/discussions](https://github.com/de-learning-hub/.github/discussions)
+- Backend: [backend/issues](https://github.com/de-learning-hub/backend/issues)
+- Frontend: [frontend/issues](https://github.com/de-learning-hub/frontend/issues)
+- Infrastructure: [infrastructure/issues](https://github.com/de-learning-hub/infrastructure/issues)
+- General discussions: [.github/discussions](https://github.com/de-learning-hub/.github/discussions)
 
-## 📞 Контакты
+## Contact
 
-- 💬 [GitHub Discussions](https://github.com/orgs/de-learning-hub/discussions)
-- 📧 Email: contact@de-learning-hub.example.com
-- 🐦 Twitter: [@de_learning_hub](https://twitter.com/de_learning_hub)
-- 💼 LinkedIn: [DE Learning Hub](https://linkedin.com/company/de-learning-hub)
+- GitHub Discussions: [de-learning-hub/discussions](https://github.com/orgs/de-learning-hub/discussions)
+- Email: contact@de-learning-hub.example.com
+- Twitter: [@de_learning_hub](https://twitter.com/de_learning_hub)
+- LinkedIn: [DE Learning Hub](https://linkedin.com/company/de-learning-hub)
 
-## 📄 Лицензия
+## License
 
-Проект распространяется под лицензией [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
 
-## 🙏 Благодарности
+## Acknowledgments
 
-- Команда Django и Django REST Framework
-- Сообщество React и TypeScript
-- Все контрибьюторы проекта
-- Русскоязычное Data Engineering сообщество
+- Django and Django REST Framework team
+- React and TypeScript community
+- Data Engineering community
+- All project contributors
 
 ---
-
-**Сделано с ❤️ для русскоязычного DE комьюнити**
 
 [![GitHub Stars](https://img.shields.io/github/stars/de-learning-hub?style=social)](https://github.com/de-learning-hub)
 [![Follow](https://img.shields.io/github/followers/de-learning-hub?label=Follow&style=social)](https://github.com/de-learning-hub)
